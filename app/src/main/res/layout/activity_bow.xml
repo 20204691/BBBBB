@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFF"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
 
     <ScrollView
@@ -42,7 +44,7 @@
                 android:layout_height="wrap_content"
 
                 android:gravity="center"
-                android:text="walking in place | repeat 2 times"
+                android:text="Walking in place | repeat 2 times"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:layout_marginTop="20dp"/>
@@ -59,7 +61,9 @@
                 android:padding="15dp"
                 android:text="01:00"
                 android:textColor="#000"
-                android:textSize="48sp"
+
+
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
             <Button

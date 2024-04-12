@@ -3,128 +3,89 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFF"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-
-        >
+        android:layout_centerInParent="true">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-
-
-            >
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
 
             <pl.droidsonroids.gif.GifImageView
-                android:layout_marginTop="10dp"
                 android:layout_width="fill_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/f_9"
+                android:layout_height="250dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/f_9" />
+
+            <SeekBar
+
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/primary_color"
+                android:progress="40"
+                android:thumbTint="@color/primary_color"
+                android:progressTint="@color/purple_200" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:text="Horizontal run | repeat 2 times"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"/>
 
 
-                />
-
-
-
-            <Button
-                android:layout_marginTop="35dp"
+            <!-- Replaced the Button with TextView for the timer -->
+            <TextView
                 android:id="@+id/time"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_marginLeft="105dp"
-                android:text="01:00"
-                android:textSize="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
                 android:padding="15dp"
-                android:background="@drawable/button_bg_round"
-                />
+                android:text="01:00"
+                android:textColor="#000"
 
 
+                android:textSize="40sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/startbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="-14dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_bg"
+                android:fontFamily="@font/montserrat"
                 android:gravity="center"
                 android:text="START"
-                android:fontFamily="@font/montserrat"
                 android:textColor="@android:color/white"
                 android:textSize="28sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-
-            <TextView
-                android:layout_width="305dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_ii"
-                android:padding="7dp"
-                android:text="How To Do This"
-                android:fontFamily="@font/montserratregular"
-                android:textAlignment="center"
-                android:textColor="#686060"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="20dp"
-                android:background="#ECEDE8"
-                android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/white">
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="#ECEDE8"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"
-
-                    >
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#ECEDE8"
-                        android:text="@string/f9"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/montserratregular"
-
-                        />
-                </LinearLayout>
-
-
-
-
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
+
     </ScrollView>
-
-
 
 
 </RelativeLayout>

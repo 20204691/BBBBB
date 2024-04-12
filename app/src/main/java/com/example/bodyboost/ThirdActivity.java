@@ -10,14 +10,17 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Locale;
 import android.os.Handler;
 
-import com.example.bodyboost.R;
+
 
 public class ThirdActivity extends AppCompatActivity {
+
+
 
     private String buttonvalue;
     private Button startBtn;
@@ -28,6 +31,7 @@ public class ThirdActivity extends AppCompatActivity {
     private TextToSpeech textToSpeech;
     private Handler handler = new Handler();
     private boolean timerFlashing = false;
+    private ProgressBar progressBar;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -75,6 +79,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         startBtn = findViewById(R.id.startbutton);
         mtextview = findViewById(R.id.time);
+        progressBar = findViewById(R.id.progressBar);
 
         // Initialize TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -102,8 +107,6 @@ public class ThirdActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void stopTimer() {
         if (countDownTimer != null) {
@@ -170,12 +173,15 @@ public class ThirdActivity extends AppCompatActivity {
         final int number = Integer.valueOf(num2) * 30 + Integer.valueOf(num3);
         MTimeLeftinmills = number * 1000;
 
+        progressBar.setMax(number); // Set progress bar max value
+        progressBar.setProgress(number); // Set progress bar initial progress
+
         countDownTimer = new CountDownTimer(MTimeLeftinmills, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 MTimeLeftinmills = millisUntilFinished;
                 updateTimer();
-
+                updateProgressBar();
                 // Voice warning with 5 seconds remaining
                 if (millisUntilFinished <= 5000) {
                     if (textToSpeech != null && !textToSpeech.isSpeaking()) {
@@ -196,6 +202,11 @@ public class ThirdActivity extends AppCompatActivity {
 
         MTimeRunning = true;
         startBtn.setText("Pause");
+    }
+
+    private void updateProgressBar() {
+        int progress = (int) (MTimeLeftinmills / 1000);
+        progressBar.setProgress(progress);
     }
 
     private void pauseBeforeRestTimer() {
@@ -229,7 +240,7 @@ public class ThirdActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 MTimeLeftinmills = millisUntilFinished;
                 updateTimer();
-
+                updateProgressBar();
                 // Voice warning with 5 seconds remaining
                 if (millisUntilFinished <= 5000) {
                     if (textToSpeech != null && !textToSpeech.isSpeaking()) {
@@ -314,7 +325,4 @@ public class ThirdActivity extends AppCompatActivity {
         }
         stopTimerFlashing(); // Ensure flashing is stopped when the activity is destroyed
     }
-
-
-
 }

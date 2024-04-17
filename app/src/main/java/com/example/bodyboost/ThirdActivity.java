@@ -31,7 +31,6 @@ public class ThirdActivity extends AppCompatActivity {
     private TextToSpeech textToSpeech;
     private Handler handler = new Handler();
     private boolean timerFlashing = false;
-    private ProgressBar progressBar;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -79,7 +78,6 @@ public class ThirdActivity extends AppCompatActivity {
 
         startBtn = findViewById(R.id.startbutton);
         mtextview = findViewById(R.id.time);
-        progressBar = findViewById(R.id.progressBar);
 
         // Initialize TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -170,11 +168,10 @@ public class ThirdActivity extends AppCompatActivity {
         String num2 = num1.substring(0, 2);
         String num3 = num1.substring(3, 5);
 
-        final int number = Integer.valueOf(num2) * 30 + Integer.valueOf(num3);
+        final int number = Integer.valueOf(num2) * 60 + Integer.valueOf(num3);
         MTimeLeftinmills = number * 1000;
 
-        progressBar.setMax(number); // Set progress bar max value
-        progressBar.setProgress(number); // Set progress bar initial progress
+
 
         countDownTimer = new CountDownTimer(MTimeLeftinmills, 1000) {
             @Override
@@ -206,7 +203,7 @@ public class ThirdActivity extends AppCompatActivity {
 
     private void updateProgressBar() {
         int progress = (int) (MTimeLeftinmills / 1000);
-        progressBar.setProgress(progress);
+
     }
 
     private void pauseBeforeRestTimer() {
